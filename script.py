@@ -35,9 +35,6 @@ counter = 0
 for device in resultado_devices:
     if device['productType'] == 'wireless' or device['productType'] == 'appliance':
         parsed_devices.append(device)
-        counter = counter+1
-print(counter)
-print(parsed_devices)
 
 with open('devices.csv', 'w') as csv_file:
     writer = csv.writer(csv_file)
@@ -45,3 +42,4 @@ with open('devices.csv', 'w') as csv_file:
         for key, value in device.items():
             if key == "name" or key == "model" or key == "serial" or key == "mac" or key == "lanIp":
                 writer.writerow([key, value])
+                print([key, value])
