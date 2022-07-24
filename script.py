@@ -18,6 +18,7 @@ try:
     resultado = response.json()
 except requests.exceptions.HTTPError as err:
     raise SystemExit(err)
+print(resultado)
 
 url2 = "https://api.meraki.com/api/v1/organizations/681155/devices"
 
