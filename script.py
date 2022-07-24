@@ -27,9 +27,15 @@ headers = {
     "X-Cisco-Meraki-API-Key": "6bec40cf957de430a6f1f2baa056b99a4fac9ea0"
 }
 
-response_devices = requests.request('GET', url2, headers=headers, data=payload)
-resultado_devices = json.loads(response_devices.text)
-# print(resultado_devices)
+try:
+    response_devices = requests.request(
+        'GET', url2, headers=headers, data=payload)
+    response_devices.raise_for_status()
+    resultado_devices = json.loads(response_devices.text)
+except requests.exceptions.HTTPError as err:
+    raise SystemExit(err)
+
+
 parsed_devices = []
 counter = 0
 for device in resultado_devices:
