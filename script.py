@@ -61,4 +61,4 @@ if __name__ == '__main__':
     # call devices_func every 5 minutes
     while(True):
         devices_func()
-        time.sleep(5)
+        time.sleep(300)
