@@ -1,0 +1,4 @@
+  sdn-docker:
+    build: ./
+    volumes:
+      - ./:/sdn-projects
